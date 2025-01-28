@@ -2,7 +2,7 @@
   description = "Rust flake";
   inputs =
     {
-      nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+      nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
       flake-utils.url  = "github:numtide/flake-utils";
       rust-overlay.url = "github:oxalica/rust-overlay";
     };
@@ -25,7 +25,16 @@
               extensions = [ "rust-src" "rust-analyzer" "cargo" "rustfmt" "clippy" ];
               targets = [ "thumbv6m-none-eabi" ];
             })
+
+            # LSP for markdown
+            markdown-oxide
+            # TUI PDF viewier
+            tdf
           ];
+          shellHook = ''
+            nu
+            exit
+          '';
         };
       }
     );
