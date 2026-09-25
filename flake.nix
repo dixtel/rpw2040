@@ -21,20 +21,11 @@
             openssl
             pkg-config
             probe-rs
-            (rust-bin.stable.latest.default.override {
+            (rust-bin.stable."1.98.1".default.override {
               extensions = [ "rust-src" "rust-analyzer" "cargo" "rustfmt" "clippy" ];
-              targets = [ "thumbv6m-none-eabi" ];
+              targets = [ "thumbv6m-none-eabi" "x86_64-unknown-linux-gnu" ];
             })
-
-            # LSP for markdown
-            markdown-oxide
-            # TUI PDF viewier
-            tdf
           ];
-          shellHook = ''
-            nu
-            exit
-          '';
         };
       }
     );
